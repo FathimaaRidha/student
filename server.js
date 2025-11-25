@@ -24,7 +24,7 @@ function writeDataFile(data) {
     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 }   
 // add a new task
-app.post('/students', (req, res) => {
+app.post('api/students', (req, res) => {
     const{name, age, course, year, status } = req.body;
     if(!name || !age || !course || !year || !status) {
         return  res.status(400).json({error: 'All fields are required'});
@@ -44,7 +44,7 @@ app.post('/students', (req, res) => {
 });
 
 // get all students
-app.get('/students', (req, res) => {
+app.get('api//students', (req, res) => {
     const students = readDataFile();
     res.json(students);
 });     
